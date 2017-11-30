@@ -11,6 +11,7 @@ import (
 	"github.com/containous/traefik/ping"
 	"github.com/containous/traefik/provider/boltdb"
 	"github.com/containous/traefik/provider/consul"
+	"github.com/containous/traefik/provider/cosmosdb"
 	"github.com/containous/traefik/provider/docker"
 	"github.com/containous/traefik/provider/dynamodb"
 	"github.com/containous/traefik/provider/ecs"
@@ -161,6 +162,11 @@ func NewTraefikDefaultPointersConfiguration() *TraefikConfiguration {
 	defaultDynamoDB.TableName = "traefik"
 	defaultDynamoDB.Watch = true
 
+	// default CosmosDB
+	var defaultCosmosDB cosmosdb.Provider
+	defaultCosmosDB.Constraints = types.Constraints{}
+	defaultCosmosDB.CollectionName = "traefik"
+
 	// default Eureka
 	var defaultEureka eureka.Provider
 	defaultEureka.Delay = "30s"
@@ -253,6 +259,7 @@ func NewTraefikDefaultPointersConfiguration() *TraefikConfiguration {
 		Rancher:            &defaultRancher,
 		Eureka:             &defaultEureka,
 		DynamoDB:           &defaultDynamoDB,
+		CosmosDB:           &defaultCosmosDB,
 		Retry:              &configuration.Retry{},
 		HealthCheck:        &healthCheck,
 		RespondingTimeouts: &respondingTimeouts,

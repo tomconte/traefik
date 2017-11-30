@@ -562,6 +562,9 @@ func (s *Server) configureProviders() {
 	if s.globalConfiguration.ServiceFabric != nil {
 		s.providers = append(s.providers, s.globalConfiguration.ServiceFabric)
 	}
+	if s.globalConfiguration.CosmosDB != nil {
+		s.providers = append(s.providers, s.globalConfiguration.CosmosDB)
+	}
 }
 
 func (s *Server) startProviders() {

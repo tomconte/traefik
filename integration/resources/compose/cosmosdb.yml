@@ -1,0 +1,14 @@
+cosmosdb:
+  image: mongo
+  ports:
+    - "27010:27010"
+    - "27017:27017"
+
+whoami1:
+  image: emilevauge/whoami
+
+whoami2:
+  image: emilevauge/whoami
+
+whoami3:
+  image: emilevauge/whoami

@@ -13,6 +13,7 @@ import (
 	"github.com/containous/traefik/ping"
 	"github.com/containous/traefik/provider/boltdb"
 	"github.com/containous/traefik/provider/consul"
+	"github.com/containous/traefik/provider/cosmosdb"
 	"github.com/containous/traefik/provider/docker"
 	"github.com/containous/traefik/provider/dynamodb"
 	"github.com/containous/traefik/provider/ecs"
@@ -90,6 +91,7 @@ type GlobalConfiguration struct {
 	Rancher                   *rancher.Provider       `description:"Enable Rancher backend with default settings" export:"true"`
 	DynamoDB                  *dynamodb.Provider      `description:"Enable DynamoDB backend with default settings" export:"true"`
 	ServiceFabric             *servicefabric.Provider `description:"Enable Service Fabric backend with default settings" export:"true"`
+	CosmosDB                  *cosmosdb.Provider      `description:"Enable CosmosDB backend with default settings" export:"true"`
 	Rest                      *rest.Provider          `description:"Enable Rest backend with default settings" export:"true"`
 	API                       *api.Handler            `description:"Enable api/dashboard" export:"true"`
 	Metrics                   *types.Metrics          `description:"Enable a metrics exporter" export:"true"`
